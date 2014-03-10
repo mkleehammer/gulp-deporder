@@ -13,9 +13,9 @@ gulp.task('scripts', function() {
 });
 ```
 
-This will reorder files in the stream based on comments at the top of files in the form
-``// requires: file1 file2``. This is useful for automatically ordering files before concatenating
-them without a full-blown dependency system like requirejs.
+This will reorder Javascript files in the stream based on comments at the top of files in the
+form ``// requires: file1 file2``. This is useful for automatically ordering files before
+concatenating them without a full-blown dependency system like requirejs.
 
 The plugin attempts to reorder as little as possible so you can manually order large sets of
 files and only use the comments to fine tune:
