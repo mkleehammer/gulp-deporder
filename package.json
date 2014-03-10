@@ -1,0 +1,25 @@
+{
+  "name": "gulp-deporder",
+  "description": "Reorder by dependencies",
+  "version": "1.0.0",
+  "homepage": "http://github.com/mkleehammer/gulp-deporder",
+  "repository": "git://github.com/mkleehammer/gulp-deporder.git",
+  "author": "michael@kleehammer.com",
+  "main": "./index.js",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "through": "~2.3.4",
+    "gulp-util": "~2.2.14"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
