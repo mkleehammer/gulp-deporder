@@ -36,7 +36,7 @@ module.exports = function() {
         }
     }
 
-    var reInlineDependencies = /^\s*\/\/\s*require(?:s)?(?:\:)?:\s+(.*)$/m;
+    var reInlineDependencies = /^\s*\/\/\s*require(?:s)?(?:\:)?\s+(.*)$/m;
     var reMultilineDependencies = /(\/\*\s*require(?:s)?(?:\:)?([\s\S]*?)\*\/)/m;
 
     function getRequired(file) {
