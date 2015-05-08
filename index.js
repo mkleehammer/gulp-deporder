@@ -36,7 +36,8 @@ module.exports = function() {
         }
     }
 
-    var reDependencies = /^\s*\/\/\s*require(?:s)?:\s+(.*)$/m;
+    var reInlineDependencies = /^\s*\/\/\s*require(?:s)?:\s+(.*)$/m;
+    var reMultilineDependencies = /(\/\*\s*require(?:s)?([\s\S]*?)\*\/)/m;
 
     function getRequired(file) {
         // Accepts a vinyl file object and searches it for dependencies.
@@ -48,9 +49,15 @@ module.exports = function() {
 
         if (file.contents) {
             var contents = file.contents.toString('utf8', 0, 1024);
-            var match = reDependencies.exec(contents);
+            var match = reInlineDependencies.exec(contents);
             if (match) {
                 result.requires = match[1].split(/\s+/);
+            }
+
+            match = reMultilineDependencies.exec(contents);
+            if (match && match[2]) {
+                match[2] = match[2].replace(/\r|\n/g, ' ').replace(/\s+/g, ' ').trim(' ');
+                result.requires = result.requires.concat(match[2].split(/\s+/));
             }
         }
 
