@@ -1,37 +1,64 @@
+Gulp DepOrder plugin
+====================
 
-## Usage
+This plugin will reorder JavaScript or CSS files in the stream based on comments at the top of files.
+This is useful for automatically ordering files before concatenating them without a full-blown dependency system like requirejs.
 
+The plugin attempts to reorder as little as possible so you can manually order large sets of
+files and only use the comments to fine tune.
+
+# How to use
+
+## Gulp
+For JavaScript files:
 ```javascript
 var deporder = require('gulp-deporder');
 var concat   = require('gulp-concat');
 
 gulp.task('scripts', function() {
-  gulp.src('./lib/*.js')
-    .pipe(deporder())
-    .pipe(concat('all.js'))
-    .pipe(gulp.dest('./dist/'))
-});
-```
-
-This will reorder Javascript files in the stream based on comments at the top of files in the
-form ``// requires: file1 file2``. This is useful for automatically ordering files before
-concatenating them without a full-blown dependency system like requirejs.
-
-The plugin attempts to reorder as little as possible so you can manually order large sets of
-files and only use the comments to fine tune:
-
-```javascript
-gulp.task('scripts', function() {
-    return gulp.src(['./models/*.js',
-                     './collections/*.js',
-                     './views/*.js'])
+    return gulp.src('./lib/*.js')
         .pipe(deporder())
         .pipe(concat('all.js'))
         .pipe(gulp.dest('./dist/'))
 });
 ```
 
-## LICENSE
+For CSS files:
+```javascript
+gulp.task('styles', function() {
+    return gulp.src('./lib/*.css')
+        .pipe(deporder())
+        .pipe(concat('all.css'))
+        .pipe(gulp.dest('./dist/'))
+});
+```
+
+## JavaScript
+
+There is several ways to specify dependencies:
+First is single-line:
+``// requires: foo.js bar.js``
+Second is multi-line if you have lot of dependencies:
+```javascript
+/* requires:
+foo.js
+bar.js
+*/
+```
+
+## CSS
+Since CSS doesn't support single-line comments, you should only use multi-line comments:
+```css
+/* requires:
+foo.css
+bar.css
+*/
+```
+
+##
+You also need know, that all examples above uses ``requires: foo.js``, but you can also use it without trailing "s", like ``require: foo.js`` or even without without colon like ``requires foo.js`` or ``require foo.js``
+
+# LICENSE
 
 (MIT License)
 
