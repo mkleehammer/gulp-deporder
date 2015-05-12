@@ -9,7 +9,7 @@ files and only use the comments to fine tune.
 
 # How to use
 
-## Gulp
+### Gulp
 For JavaScript files:
 ```javascript
 var deporder = require('gulp-deporder');
@@ -33,7 +33,7 @@ gulp.task('styles', function() {
 });
 ```
 
-## JavaScript
+### JavaScript
 
 There is several ways to specify dependencies:
 First is single-line:
@@ -46,7 +46,7 @@ bar.js
 */
 ```
 
-## CSS
+### CSS
 Since CSS doesn't support single-line comments, you should only use multi-line comments:
 ```css
 /* requires:
@@ -55,8 +55,8 @@ bar.css
 */
 ```
 
-##
-You also need know, that all examples above uses ``requires: foo.js``, but you can also use it without trailing "s", like ``require: foo.js`` or even without without colon like ``requires foo.js`` or ``require foo.js``
+## Write less, do more
+You also need know, that all examples above uses ``requires: foo.js``, but you can also use it without trailing "s", like ``require: foo.js`` or even without colon like ``requires foo.js`` or ``require foo.js``.
 
 # LICENSE
 
