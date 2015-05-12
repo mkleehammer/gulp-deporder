@@ -60,6 +60,14 @@ bar.css
 
 ## Write less, do more
 You also need know, that all examples above uses ``requires: foo.js``, but you can also use it without trailing "s", like ``require: foo.js`` or even without colon like ``requires foo.js`` or ``require foo.js``.
+And, of course, in multi-line style you can use spaces to indent your dependencies, like:
+```javascript
+/* require
+  foo/bar.js
+      bar/foo.js
+*/
+```
+All of those spaces will be cleaned and dependencies are processed correctly.
 
 # LICENSE
 
