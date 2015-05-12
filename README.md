@@ -13,7 +13,7 @@ files and only use the comments to fine tune.
 For JavaScript files:
 ```javascript
 var deporder = require('gulp-deporder');
-var concat   = require('gulp-concat');
+var concat = require('gulp-concat');
 
 gulp.task('scripts', function() {
     return gulp.src('./lib/*.js')
@@ -25,6 +25,9 @@ gulp.task('scripts', function() {
 
 For CSS files:
 ```javascript
+var deporder = require('gulp-deporder');
+var concat = require('gulp-concat');
+
 gulp.task('styles', function() {
     return gulp.src('./lib/*.css')
         .pipe(deporder())
