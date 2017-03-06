@@ -5,6 +5,7 @@
 
 var through = require('through');
 var gutil = require('gulp-util');
+var path = require('path');
 var PluginError = gutil.PluginError;
 var File = gutil.File;
 
@@ -42,26 +43,34 @@ module.exports = function() {
     function getRequired(file) {
         // Accepts a vinyl file object and searches it for dependencies.
 
-        var result = {
-            file: file,
-            requires: []
-        };
+        
+        var requires = [];
+        
 
         if (file.contents) {
             var contents = file.contents.toString('utf8', 0, 1024);
             var match = reInlineDependencies.exec(contents);
             if (match) {
-                result.requires = match[1].split(/\s+/);
+                requires = match[1].split(/\s+/);
             }
 
             match = reMultilineDependencies.exec(contents);
             if (match && match[2]) {
                 match[2] = match[2].replace(/\r|\n/g, ' ').replace(/\s+/g, ' ').trim(' ');
-                result.requires = result.requires.concat(match[2].split(/\s+/));
+                requires = requires.concat(match[2].split(/\s+/));
             }
         }
 
-        return result;
+        var out = {
+            file: file,
+            requires: []
+        };
+
+        if(requires.length > 0) {
+          out.requires = requires.map(path.normalize)
+        }
+
+        return out;
     }
 
     function reorder() {
