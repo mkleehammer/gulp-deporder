@@ -4,10 +4,9 @@
 /* jshint node: true */
 
 var through = require('through');
-var gutil = require('gulp-util');
 var path = require('path');
-var PluginError = gutil.PluginError;
-var File = gutil.File;
+var PluginError = require('plugin-error');
+var File = require('vinyl');
 
 module.exports = function() {
 

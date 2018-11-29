@@ -1,6 +1,6 @@
 var deporder = require('../');
 var path = require('path');
-var File = require('gulp-util').File;
+var File = require('vinyl');
 var assert = require('assert');
 require('mocha');
 
