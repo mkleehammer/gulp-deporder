@@ -1,7 +1,7 @@
 {
   "name": "gulp-deporder",
   "description": "Reorder by dependencies",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "http://github.com/mkleehammer/gulp-deporder",
   "repository": "git://github.com/mkleehammer/gulp-deporder.git",
   "author": "michael@kleehammer.com",
