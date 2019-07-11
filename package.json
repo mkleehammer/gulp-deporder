@@ -5,6 +5,7 @@
   "homepage": "http://github.com/mkleehammer/gulp-deporder",
   "repository": "git://github.com/mkleehammer/gulp-deporder.git",
   "author": "michael@kleehammer.com",
+  "license": "MIT",
   "main": "./index.js",
   "keywords": [
     "gulpplugin"

@@ -42,9 +42,9 @@ module.exports = function() {
     function getRequired(file) {
         // Accepts a vinyl file object and searches it for dependencies.
 
-        
+
         var requires = [];
-        
+
 
         if (file.contents) {
             var contents = file.contents.toString('utf8', 0, 1024);
@@ -66,7 +66,7 @@ module.exports = function() {
         };
 
         if(requires.length > 0) {
-          out.requires = requires.map(path.normalize)
+          out.requires = requires.map(path.normalize);
         }
 
         return out;
