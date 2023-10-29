@@ -1,13 +1,20 @@
 Gulp DepOrder plugin
 ====================
-
 This plugin will reorder JavaScript or CSS files in the stream based on comments at the top of files.
 This is useful for automatically ordering files before concatenating them without a full-blown dependency system like requirejs.
 
 The plugin attempts to reorder as little as possible so you can manually order large sets of
 files and only use the comments to fine tune.
 
-# How to use
+# 
+## WARNING: NOT CURRENTLY MAINTAINED
+
+    This project is no longer being maintained, and I'm no longer fixing bugs!
+
+    Please contact me if you want to adopt this project. You can also fork it on GitHub.
+
+
+How to use
 
 ### Gulp
 For JavaScript files:
